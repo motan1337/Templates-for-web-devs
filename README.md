@@ -12,7 +12,6 @@ It takes like less than 30 seconds for all of them to get them up and running wi
 
 The pages are written in html, css and javascript, and they are very nicely packaged in one single html file without any external dependency.
 
-Preview:
 404 page:
 
 https://github.com/user-attachments/assets/8d6b8a65-9c9a-4855-940f-908d6c81e8a3
