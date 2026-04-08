@@ -10,4 +10,4 @@ What is included?
 
 It takes like less than 30 seconds for all of them to get them up and running with your custom text
 
-They pages are written in html, css and javascript, and they are very nicely packaged in one single html file without any external dependency.
+The pages are written in html, css and javascript, and they are very nicely packaged in one single html file without any external dependency.
