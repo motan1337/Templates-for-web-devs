@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SPUNK FOR MILK</title>
+  <link href="https://fonts.googleapis.com/css2?family=Myriad+Pro&family=Segoe+UI:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --sky-top: #04060f;
+      --sky-mid: #0a0e24;
+      --sky-bottom: #12183a;
+      --glass-bg: rgba(20,28,70,0.45);
+      --glass-border: rgba(160,180,255,0.22);
+      --glass-shadow: rgba(80,100,200,0.22);
+      --accent-blue: #7ab4f8;
+      --accent-teal: #34c8b0;
+      --text-dark: #e8eeff;
+      --text-mid: #a0b4d8;
+      --leaf: #6dda8e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Segoe UI', 'Trebuchet MS', Tahoma, sans-serif;
+      background: linear-gradient(170deg, var(--sky-top) 0%, var(--sky-mid) 45%, var(--sky-bottom) 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── habar nu am ce pula mea se intampla aici ── */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.55;
+      animation: drift linear infinite alternate;
+      pointer-events: none;
+    }
+    .blob-1 { width: 420px; height: 420px; top: -80px; left: -80px; background: radial-gradient(circle, #1a1060 0%, #08063a 100%); animation-duration: 14s; }
+    .blob-2 { width: 280px; height: 280px; bottom: -60px; right: 60px; background: radial-gradient(circle, #2a1050 0%, #0e0828 100%); animation-duration: 11s; }
+    .blob-3 { width: 180px; height: 180px; top: 30%; right: 12%; background: radial-gradient(circle, #18306a 0%, #0a1838 100%); animation-duration: 17s; }
+    @keyframes drift { from { transform: translateY(0) scale(1); } to { transform: translateY(28px) scale(1.06); } }
+
+    /* ── politia trece curvele raman ── */
+    .ground {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 180px;
+      background: linear-gradient(to top, rgba(60,20,80,0.55) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* ── de ce te uiti ma prin codul meu? ── */
+    .floaty {
+      position: absolute;
+      pointer-events: none;
+      animation: floatItem ease-in-out infinite alternate;
+    }
+    @keyframes floatItem {
+      from { transform: translateY(0) rotate(var(--rot-from, -6deg)); }
+      to   { transform: translateY(-20px) rotate(var(--rot-to, 6deg)); }
+    }
+    .fi-lasagna  { top: 8%;  left: 5%;   --rot-from:-8deg;  --rot-to:4deg;   animation-duration:5.2s; }
+    .fi-pizza    { top: 5%;  right: 7%;  --rot-from:5deg;   --rot-to:-7deg;  animation-duration:6.8s; animation-delay:.8s; }
+    .fi-fries    { top: 55%; left: 3%;   --rot-from:-5deg;  --rot-to:8deg;   animation-duration:4.6s; animation-delay:.3s; }
+    .fi-awp      { top: 12%; right: 20%; --rot-from:-12deg; --rot-to:2deg;   animation-duration:7.4s; animation-delay:1.2s; }
+    .fi-cat-pink { top: 65%; right: 4%;  --rot-from:4deg;   --rot-to:-6deg;  animation-duration:5.8s; animation-delay:.6s; }
+    .fi-cat-blue { top: 72%; left: 18%;  --rot-from:-6deg;  --rot-to:5deg;   animation-duration:6.2s; animation-delay:1.5s; }
+    .fi-cat-grn  { top: 20%; left: 28%;  --rot-from:3deg;   --rot-to:-8deg;  animation-duration:4.9s; animation-delay:2s; }
+    .fi-cat-pur  { top: 40%; right: 2%;  --rot-from:-4deg;  --rot-to:9deg;   animation-duration:5.5s; animation-delay:.4s; }
+
+    /* ── why are you looking at my code? i have no idea too , do you think you will understand what i did here? ── */
+    .leaf {
+      position: absolute;
+      width: 34px; height: 52px;
+      border-radius: 0 60% 0 60%;
+      background: transparent;
+      box-shadow: none;
+      pointer-events: none;
+      animation: sway ease-in-out 6s infinite alternate;
+    }
+    .leaf-1 { bottom: 90px; left: 7%; transform: rotate(-30deg); animation-delay: 0s; }
+    .leaf-2 { bottom: 70px; right: 9%; transform: rotate(25deg) scaleX(-1); animation-delay: 1.5s; }
+    .leaf-3 { bottom: 120px; left: 22%; transform: rotate(-18deg) scale(0.7); animation-delay: 0.8s; }
+    @keyframes sway { from { transform: rotate(-30deg); } to { transform: rotate(-22deg) translateY(-6px); } }
+
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    to   { opacity: 1; transform: scale(1);   }
+    }
+
+    50%      { transform: translateY(-8px) rotate(2deg); }
+    }
+
+    50%      { box-shadow: 0 0 0 5px rgba(240,160,48,0.08); }
+    }
+to   { transform: translateX(calc(100vw + 160px)); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- imparatul pleasca pe buci e fleasca -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- mi-l mangai te rog putin daca tot insisti sa te uiti prin codul meu? -->
+
+  <!-- sosal? -->
+  <div class="floaty fi-lasagna">
+    <svg width="70" height="52" viewBox="0 0 70 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- respectati apropele tau -->
+      <ellipse cx="35" cy="46" rx="32" ry="6" fill="#c8a060"/>
+      <!-- nu iti uita prietenii odata ce dai de bani sau femei -->
+      <rect x="6" y="30" width="58" height="10" rx="3" fill="#e8c87a"/>
+      <!-- nu uita de unde ai pleca -->
+      <rect x="6" y="30" width="58" height="4" rx="2" fill="#d04020"/>
+      <!-- nu mai fiti bulangii -->
+      <rect x="6" y="20" width="58" height="10" rx="3" fill="#f0d890"/>
+      <!-- da ba datoria inapoi -->
+      <rect x="6" y="20" width="58" height="4" rx="2" fill="#c83818"/>
+      <!-- tic tac ma-ta e barbat -->
+      <rect x="6" y="10" width="58" height="12" rx="3" fill="#f8e8a0"/>
+      <!-- cat cantareste un borcan pe jumatate full de.....sperma -->
+      <ellipse cx="18" cy="10" rx="5" ry="3" fill="#fff8d0"/>
+      <ellipse cx="35" cy="9" rx="6" ry="3.5" fill="#fff8d0"/>
+      <ellipse cx="52" cy="10" rx="5" ry="3" fill="#fff8d0"/>
+      <!-- sa va suga toti tantarii si sa va intepe bochetarii -->
+      <ellipse cx="18" cy="9" rx="3" ry="2" fill="#c87820"/>
+      <ellipse cx="35" cy="8" rx="4" ry="2.2" fill="#c87820"/>
+      <ellipse cx="52" cy="9" rx="3" ry="2" fill="#c87820"/>
+    </svg>
+  </div>
+
+  <!-- mi-l bei? -->
+  <div class="floaty fi-pizza">
+    <svg width="58" height="64" viewBox="0 0 58 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- mi-l imblanzesti? -->
+      <path d="M2 58 L29 4 L56 58 Z" fill="#e8c878"/>
+      <path d="M2 58 Q29 66 56 58 L29 4 Z" fill="#d4a040"/>
+      <!-- sosul bucatarului -->
+      <path d="M8 54 L29 10 L50 54 Z" fill="#d03818"/>
+      <!-- spunk for milk -->
+      <path d="M10 52 L29 14 L48 52 Z" fill="#f8e060"/>
+      <!-- scuze am sindromul torrents care e foarte contagios se ia daca te uiti la filme porno cu grase -->
+      <circle cx="29" cy="36" r="5" fill="#b02010"/>
+      <circle cx="20" cy="46" r="4" fill="#b02010"/>
+      <circle cx="38" cy="46" r="4" fill="#b02010"/>
+      <!-- pentru fiecare persoana care se sterge la cur sunt 3 care lasa sa se faca crusta la buci -->
+      <path d="M2 58 Q5 44 29 4 Q53 44 56 58" stroke="#c89030" stroke-width="2" fill="none" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <!-- i use spunk for milk -->
+  <div class="floaty fi-fries">
+    <svg width="50" height="66" viewBox="0 0 50 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- am gaura in chiloti de la basinile mele radioactive -->
+      <rect x="8" y="34" width="34" height="28" rx="3" fill="#e82020"/>
+      <!-- pana moartea ne va desparatiiiiiiiiii -->
+      <rect x="8" y="34" width="11" height="28" rx="2" fill="#cc1010"/>
+      <rect x="31" y="34" width="11" height="28" rx="2" fill="#cc1010"/>
+      <!-- vreau vreau sa sa sarrrrrrrrr -->
+      <path d="M11 34 Q25 26 39 34" stroke="white" stroke-width="2" fill="none" opacity="0.6"/>
+      <!-- fuck you moira -->
+      <rect x="12" y="4"  width="6" height="34" rx="3" fill="#f8d840"/>
+      <rect x="20" y="2"  width="6" height="36" rx="3" fill="#f0c830"/>
+      <rect x="28" y="5"  width="6" height="33" rx="3" fill="#f8d840"/>
+      <rect x="36" y="3"  width="5" height="34" rx="2.5" fill="#f0c830"/>
+      <rect x="4"  y="6"  width="5" height="30" rx="2.5" fill="#f8d840"/>
+    </svg>
+  </div>
+
+  <!-- death to all troons, trannies and femboys -->
+  <div class="floaty fi-awp">
+    <svg width="110" height="36" viewBox="0 0 110 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- death to moira tanriver -->
+      <rect x="0" y="15" width="60" height="5" rx="2.5" fill="#444"/>
+      <!-- death to all niggers -->
+      <rect x="0" y="13" width="8" height="9" rx="2" fill="#333"/>
+      <!-- death to all jews -->
+      <rect x="38" y="8" width="18" height="8" rx="3" fill="#222"/>
+      <circle cx="47" cy="12" r="3" fill="#4af" opacity="0.7"/>
+      <line x1="44" y1="12" x2="50" y2="12" stroke="white" stroke-width="0.8" opacity="0.5"/>
+      <line x1="47" y1="9"  x2="47" y2="15" stroke="white" stroke-width="0.8" opacity="0.5"/>
+      <!-- death to russians and ukranians -->
+      <rect x="55" y="11" width="38" height="13" rx="4" fill="#5a4a2a"/>
+      <!-- death to gypsy  -->
+      <rect x="80" y="9" width="8" height="4" rx="2" fill="#3a2a0a"/>
+      <circle cx="88" cy="11" r="3" fill="#3a2a0a"/>
+      <!-- death to pdf files -->
+      <path d="M70 24 Q74 30 78 24" stroke="#3a2a0a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <!-- death to microslop aka microsoft -->
+      <path d="M93 13 L110 10 L110 25 L93 24 Z" fill="#4a3a18"/>
+      <!-- death to everyone that wanted me to die that day -->
+      <rect x="72" y="24" width="10" height="10" rx="3" fill="#3a2a0a"/>
+    </svg>
+  </div>
+
+  <!-- death to everyone that wanted my downfall and succeeded ive come back stronger -->
+  <div class="floaty fi-cat-pink">
+    <svg width="52" height="58" viewBox="0 0 52 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12" y="28" width="28" height="24" rx="10" fill="#f080b0"/>
+      <ellipse cx="26" cy="42" rx="10" ry="9" fill="#ffc0d8"/>
+      <rect x="16" y="22" width="20" height="12" rx="5" fill="#f080b0"/>
+      <ellipse cx="26" cy="20" rx="14" ry="13" fill="#f080b0"/>
+      <polygon points="15,12 11,2 21,11" fill="#f080b0"/><polygon points="37,12 41,2 31,11" fill="#f080b0"/>
+      <ellipse cx="20" cy="19" rx="4" ry="3.5" fill="white"/><ellipse cx="32" cy="19" rx="4" ry="3.5" fill="white"/>
+      <ellipse cx="20" cy="20" rx="2.5" ry="2.5" fill="#1a0820"/><ellipse cx="32" cy="20" rx="2.5" ry="2.5" fill="#1a0820"/>
+      <circle cx="21" cy="19" r="1" fill="white"/><circle cx="33" cy="19" r="1" fill="white"/>
+      <path d="M22,13 Q23,10 24,13" fill="#f080b0"/><path d="M28,13 Q29,10 30,13" fill="#f080b0"/>
+      <ellipse cx="26" cy="24" rx="5" ry="3.5" fill="#ffc0d8"/>
+      <ellipse cx="26" cy="25" rx="1.5" ry="1" fill="#e06090"/>
+      <path d="M22,27 Q26,30 30,27" stroke="#c04070" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <line x1="21" y1="24" x2="8"  y2="22" stroke="#d080a0" stroke-width="1" opacity="0.7"/>
+      <line x1="21" y1="26" x2="8"  y2="26" stroke="#d080a0" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="24" x2="44" y2="22" stroke="#d080a0" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="26" x2="44" y2="26" stroke="#d080a0" stroke-width="1" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <!-- schimbi de vicii nimic anormal caut mereu o iesire -->
+  <div class="floaty fi-cat-blue">
+    <svg width="52" height="58" viewBox="0 0 52 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12" y="28" width="28" height="24" rx="10" fill="#60a0e8"/>
+      <ellipse cx="26" cy="42" rx="10" ry="9" fill="#b8d8f8"/>
+      <rect x="16" y="22" width="20" height="12" rx="5" fill="#60a0e8"/>
+      <ellipse cx="26" cy="20" rx="14" ry="13" fill="#60a0e8"/>
+      <polygon points="15,12 11,2 21,11" fill="#60a0e8"/><polygon points="37,12 41,2 31,11" fill="#60a0e8"/>
+      <ellipse cx="20" cy="19" rx="4" ry="3.5" fill="white"/><ellipse cx="32" cy="19" rx="4" ry="3.5" fill="white"/>
+      <ellipse cx="20" cy="20" rx="2.5" ry="2.5" fill="#0a1840"/><ellipse cx="32" cy="20" rx="2.5" ry="2.5" fill="#0a1840"/>
+      <circle cx="21" cy="19" r="1" fill="white"/><circle cx="33" cy="19" r="1" fill="white"/>
+      <ellipse cx="26" cy="24" rx="5" ry="3.5" fill="#b8d8f8"/>
+      <ellipse cx="26" cy="25" rx="1.5" ry="1" fill="#4080c0"/>
+      <path d="M22,27 Q26,30 30,27" stroke="#2060a0" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <line x1="21" y1="24" x2="8"  y2="22" stroke="#80b8e8" stroke-width="1" opacity="0.7"/>
+      <line x1="21" y1="26" x2="8"  y2="26" stroke="#80b8e8" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="24" x2="44" y2="22" stroke="#80b8e8" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="26" x2="44" y2="26" stroke="#80b8e8" stroke-width="1" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <!-- fara vicii am fii toti niste roboti -->
+  <div class="floaty fi-cat-grn">
+    <svg width="48" height="54" viewBox="0 0 48 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="26" width="26" height="22" rx="9" fill="#50c878"/>
+      <ellipse cx="24" cy="38" rx="9" ry="8" fill="#b0f0c0"/>
+      <rect x="14" y="20" width="18" height="11" rx="5" fill="#50c878"/>
+      <ellipse cx="24" cy="18" rx="13" ry="12" fill="#50c878"/>
+      <polygon points="13,11 9,1 19,10" fill="#50c878"/><polygon points="35,11 39,1 29,10" fill="#50c878"/>
+      <ellipse cx="18" cy="17" rx="3.5" ry="3" fill="white"/><ellipse cx="30" cy="17" rx="3.5" ry="3" fill="white"/>
+      <ellipse cx="18" cy="18" rx="2" ry="2" fill="#081808"/><ellipse cx="30" cy="18" rx="2" ry="2" fill="#081808"/>
+      <circle cx="19" cy="17" r="0.9" fill="white"/><circle cx="31" cy="17" r="0.9" fill="white"/>
+      <ellipse cx="24" cy="22" rx="4.5" ry="3" fill="#b0f0c0"/>
+      <ellipse cx="24" cy="23" rx="1.3" ry="0.9" fill="#309850"/>
+      <path d="M20,25 Q24,28 28,25" stroke="#207840" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <line x1="19" y1="22" x2="7"  y2="20" stroke="#70d890" stroke-width="1" opacity="0.7"/>
+      <line x1="19" y1="24" x2="7"  y2="24" stroke="#70d890" stroke-width="1" opacity="0.7"/>
+      <line x1="29" y1="22" x2="41" y2="20" stroke="#70d890" stroke-width="1" opacity="0.7"/>
+      <line x1="29" y1="24" x2="41" y2="24" stroke="#70d890" stroke-width="1" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <!-- foame de bani e foame de bani -->
+  <div class="floaty fi-cat-pur">
+    <svg width="48" height="54" viewBox="0 0 48 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="26" width="26" height="22" rx="9" fill="#9060d0"/>
+      <ellipse cx="24" cy="38" rx="9" ry="8" fill="#d8b8f8"/>
+      <rect x="14" y="20" width="18" height="11" rx="5" fill="#9060d0"/>
+      <ellipse cx="24" cy="18" rx="13" ry="12" fill="#9060d0"/>
+      <polygon points="13,11 9,1 19,10" fill="#9060d0"/><polygon points="35,11 39,1 29,10" fill="#9060d0"/>
+      <ellipse cx="18" cy="17" rx="3.5" ry="3" fill="white"/><ellipse cx="30" cy="17" rx="3.5" ry="3" fill="white"/>
+      <ellipse cx="18" cy="18" rx="2" ry="2" fill="#180828"/><ellipse cx="30" cy="18" rx="2" ry="2" fill="#180828"/>
+      <circle cx="19" cy="17" r="0.9" fill="white"/><circle cx="31" cy="17" r="0.9" fill="white"/>
+      <ellipse cx="24" cy="22" rx="4.5" ry="3" fill="#d8b8f8"/>
+      <ellipse cx="24" cy="23" rx="1.3" ry="0.9" fill="#7040b0"/>
+      <path d="M20,25 Q24,28 28,25" stroke="#6030a0" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <line x1="19" y1="22" x2="7"  y2="20" stroke="#b890e8" stroke-width="1" opacity="0.7"/>
+      <line x1="19" y1="24" x2="7"  y2="24" stroke="#b890e8" stroke-width="1" opacity="0.7"/>
+      <line x1="29" y1="22" x2="41" y2="20" stroke="#b890e8" stroke-width="1" opacity="0.7"/>
+      <line x1="29" y1="24" x2="41" y2="24" stroke="#b890e8" stroke-width="1" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <!-- sa va felicite canibalii -->
+  <div class="ground"></div>
+
+  <!-- sa ai perna calda pe ambele parti vara -->
+  <div class="leaf leaf-1"></div>
+  <div class="leaf leaf-2"></div>
+  <div class="leaf leaf-3"></div>
+
+
+</body>
+</html>
+
+<style>
+</style>
+
+<!-- 1 2 3 asta e bazooka -->
+<canvas id="stars" style="position:absolute;inset:0;pointer-events:none;z-index:1;width:100%;height:100%;"></canvas>
+<!-- pestele sageata -->
+<canvas id="petals" style="position:absolute;inset:0;pointer-events:none;z-index:2;width:100%;height:100%;"></canvas>
+
+<script>
+(function(){
+  /* ── pisica propan ── */
+  const sc = document.getElementById('stars');
+  const sx = sc.getContext('2d');
+  function resizeStars(){ sc.width=innerWidth; sc.height=innerHeight; drawStars(); }
+  function drawStars(){
+    sx.clearRect(0,0,sc.width,sc.height);
+    for(let i=0;i<220;i++){
+      const rng=(n,s)=>Math.abs(Math.sin(n*127.1+s*311.7)*43758.5453)%1;
+      const x=rng(i,0)*sc.width, y=rng(i,1)*sc.height;
+      const r=rng(i,2)*1.4+0.2, a=rng(i,3)*0.65+0.3;
+      sx.beginPath(); sx.arc(x,y,r,0,Math.PI*2);
+      sx.fillStyle=`rgba(255,255,240,${a})`; sx.fill();
+    }
+  }
+  window.addEventListener('resize',resizeStars); resizeStars();
+
+  /* ── half price heroin fuck off pigs pigs have you consumed any ilegal substances eh no no no its nothing like that i have tourrets syndrome ── */
+  const pc=document.getElementById('petals');
+  const px=pc.getContext('2d');
+  const N=42;
+  function resizePetals(){ pc.width=innerWidth; pc.height=innerHeight; }
+  window.addEventListener('resize',resizePetals); resizePetals();
+
+  function newPetal(fromTop){
+    return {
+      x: Math.random()*innerWidth,
+      y: fromTop ? -14 : Math.random()*innerHeight,
+      sz: Math.random()*7+5,
+      vy: Math.random()*0.9+0.35,
+      vx: (Math.random()-0.5)*0.5,
+      ang: Math.random()*Math.PI*2,
+      spin: (Math.random()-0.5)*0.028,
+      sw: Math.random()*2.5+0.8,
+      swspd: Math.random()*0.018+0.006,
+      swoff: Math.random()*Math.PI*2,
+      op: Math.random()*0.45+0.4,
+      hue: Math.random()*18,
+    };
+  }
+  const petals=Array.from({length:N},()=>newPetal(false));
+  let f=0;
+
+  function drawPetal(p){
+    px.save();
+    px.translate(p.x,p.y); px.rotate(p.ang);
+    px.globalAlpha=p.op;
+    const s=p.sz;
+    px.beginPath();
+    px.ellipse(0,-s*0.28,s*0.38,s*0.7,0,0,Math.PI*2);
+    px.fillStyle=`hsl(${340+p.hue},88%,80%)`; px.fill();
+    px.beginPath();
+    px.ellipse(0,-s*0.28,s*0.2,s*0.52,0,0,Math.PI*2);
+    px.fillStyle=`hsl(${340+p.hue},80%,93%)`; px.globalAlpha=p.op*0.55; px.fill();
+    px.restore();
+  }
+
+  function tick(){
+    px.clearRect(0,0,pc.width,pc.height); f++;
+    petals.forEach((p,i)=>{
+      p.y+=p.vy; p.x+=p.vx+Math.sin(f*p.swspd+p.swoff)*p.sw*0.07; p.ang+=p.spin;
+      if(p.y>innerHeight+18) petals[i]=newPetal(true);
+      drawPetal(p);
+    });
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+</script>
