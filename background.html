@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>INSERT TEXT</title>
-  <link href="https://fonts.googleapis.com/css2?family=Myriad+Pro&family=Segoe+UI:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <meta name="description" content="Animated night-garden background"/>
+  <title>insert text</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+
   <style>
     :root {
       --sky-top: #04060f;
@@ -22,12 +27,17 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html, body { height: 100%; }
+
     body {
       min-height: 100vh;
-      font-family: 'Segoe UI', 'Trebuchet MS', Tahoma, sans-serif;
+      font-family: 'Nunito', 'Segoe UI', 'Trebuchet MS', Tahoma, sans-serif;
       background: linear-gradient(170deg, var(--sky-top) 0%, var(--sky-mid) 45%, var(--sky-bottom) 100%);
       overflow: hidden;
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .blob {
@@ -37,6 +47,7 @@
       opacity: 0.55;
       animation: drift linear infinite alternate;
       pointer-events: none;
+      z-index: 0;
     }
     .blob-1 { width: 420px; height: 420px; top: -80px; left: -80px; background: radial-gradient(circle, #1a1060 0%, #08063a 100%); animation-duration: 14s; }
     .blob-2 { width: 280px; height: 280px; bottom: -60px; right: 60px; background: radial-gradient(circle, #2a1050 0%, #0e0828 100%); animation-duration: 11s; }
@@ -49,77 +60,127 @@
       height: 180px;
       background: linear-gradient(to top, rgba(60,20,80,0.55) 0%, transparent 100%);
       pointer-events: none;
+      z-index: 0;
     }
 
     .floaty {
       position: absolute;
       pointer-events: none;
+      z-index: 3;
       animation: floatItem ease-in-out infinite alternate;
     }
     @keyframes floatItem {
       from { transform: translateY(0) rotate(var(--rot-from, -6deg)); }
       to   { transform: translateY(-20px) rotate(var(--rot-to, 6deg)); }
     }
-    .fi-lasagna  { top: 8%;  left: 5%;   --rot-from:-8deg;  --rot-to:4deg;   animation-duration:5.2s; }
-    .fi-pizza    { top: 5%;  right: 7%;  --rot-from:5deg;   --rot-to:-7deg;  animation-duration:6.8s; animation-delay:.8s; }
-    .fi-fries    { top: 55%; left: 3%;   --rot-from:-5deg;  --rot-to:8deg;   animation-duration:4.6s; animation-delay:.3s; }
-    .fi-awp      { top: 12%; right: 20%; --rot-from:-12deg; --rot-to:2deg;   animation-duration:7.4s; animation-delay:1.2s; }
-    .fi-cat-pink { top: 65%; right: 4%;  --rot-from:4deg;   --rot-to:-6deg;  animation-duration:5.8s; animation-delay:.6s; }
-    .fi-cat-blue { top: 72%; left: 18%;  --rot-from:-6deg;  --rot-to:5deg;   animation-duration:6.2s; animation-delay:1.5s; }
-    .fi-cat-grn  { top: 20%; left: 28%;  --rot-from:3deg;   --rot-to:-8deg;  animation-duration:4.9s; animation-delay:2s; }
-    .fi-cat-pur  { top: 40%; right: 2%;  --rot-from:-4deg;  --rot-to:9deg;   animation-duration:5.5s; animation-delay:.4s; }
+    .fi-lasagna    { top: 8%;  left: 5%;   --rot-from:-8deg;  --rot-to:4deg;   animation-duration:5.2s; }
+    .fi-pizza      { top: 5%;  right: 7%;  --rot-from:5deg;   --rot-to:-7deg;  animation-duration:6.8s; animation-delay:.8s; }
+    .fi-fries      { top: 55%; left: 3%;   --rot-from:-5deg;  --rot-to:8deg;   animation-duration:4.6s; animation-delay:.3s; }
+    .fi-awp        { top: 12%; right: 20%; --rot-from:-12deg; --rot-to:2deg;   animation-duration:7.4s; animation-delay:1.2s; }
+    .fi-cat-pink   { top: 65%; right: 4%;  --rot-from:4deg;   --rot-to:-6deg;  animation-duration:5.8s; animation-delay:.6s; }
+    .fi-cat-blue   { top: 72%; left: 18%;  --rot-from:-6deg;  --rot-to:5deg;   animation-duration:6.2s; animation-delay:1.5s; }
+    .fi-cat-grn    { top: 20%; left: 28%;  --rot-from:3deg;   --rot-to:-8deg;  animation-duration:4.9s; animation-delay:2s; }
+    .fi-cat-pur    { top: 40%; right: 2%;  --rot-from:-4deg;  --rot-to:9deg;   animation-duration:5.5s; animation-delay:.4s; }
+    .fi-cat-orange { top: 82%; left: 42%; --rot-from:-3deg;  --rot-to:6deg;   animation-duration:5.4s; animation-delay:.7s; }
+    .fi-cat-or2    { top: 25%; left: 55%; --rot-from:-4deg;  --rot-to:7deg;   animation-duration:5.6s; animation-delay:.5s; }
+    .fi-cat-or3    { top: 42%; left: 48%; --rot-from:5deg;   --rot-to:-3deg;  animation-duration:4.8s; animation-delay:1.4s; }
+    .fi-cat-or4    { top: 62%; left: 50%; --rot-from:-2deg;  --rot-to:6deg;   animation-duration:6.0s; animation-delay:.3s; }
+    .fi-cat-or5    { top: 8%;  left: 62%; --rot-from:7deg;   --rot-to:-5deg;  animation-duration:4.4s; animation-delay:1.9s; }
+    .fi-cat-yel    { top: 14%; left: 48%; --rot-from:-7deg;  --rot-to:4deg;   animation-duration:4.7s; animation-delay:.4s; }
+    .fi-cat-red    { top: 32%; left: 60%; --rot-from:5deg;   --rot-to:-4deg;  animation-duration:5.9s; animation-delay:1.8s; }
+    .fi-cat-cyan   { top: 50%; left: 32%; --rot-from:-2deg;  --rot-to:8deg;   animation-duration:6.4s; animation-delay:.9s; }
+    .fi-cat-blk    { top: 88%; right: 25%; --rot-from:6deg;  --rot-to:-3deg;  animation-duration:5.1s; animation-delay:2.2s; }
+    .fi-cat-brn    { top: 58%; left: 68%; --rot-from:-5deg;  --rot-to:7deg;   animation-duration:5.7s; animation-delay:1.1s; }
 
     .leaf {
       position: absolute;
       width: 34px; height: 52px;
       border-radius: 0 60% 0 60%;
-      background: transparent;
-      box-shadow: none;
+      background: linear-gradient(135deg, var(--leaf) 0%, #3aa860 100%);
+      box-shadow: 0 4px 12px rgba(40,120,60,0.35), inset -6px -6px 12px rgba(0,0,0,0.15);
       pointer-events: none;
+      z-index: 1;
       animation: sway ease-in-out 6s infinite alternate;
     }
-    .leaf-1 { bottom: 90px; left: 7%; transform: rotate(-30deg); animation-delay: 0s; }
+    .leaf::before {
+      content: '';
+      position: absolute;
+      top: 8%; left: 50%;
+      width: 1.5px; height: 80%;
+      background: rgba(255,255,255,0.25);
+      transform: translateX(-50%) rotate(8deg);
+    }
+    .leaf-1 { bottom: 90px; left: 7%;  transform: rotate(-30deg); animation-delay: 0s; }
     .leaf-2 { bottom: 70px; right: 9%; transform: rotate(25deg) scaleX(-1); animation-delay: 1.5s; }
     .leaf-3 { bottom: 120px; left: 22%; transform: rotate(-18deg) scale(0.7); animation-delay: 0.8s; }
     @keyframes sway { from { transform: rotate(-30deg); } to { transform: rotate(-22deg) translateY(-6px); } }
-    @keyframes cardIn {
-    to   { opacity: 1; transform: translateY(0) scale(1); }
-    to   { opacity: 1; transform: scale(1);   }
-    50%      { transform: translateY(-8px) rotate(2deg); }
-    50%      { box-shadow: 0 0 0 5px rgba(240,160,48,0.08); }
-    to   { transform: translateX(calc(100vw + 160px)); }
+
+
+    .cloud {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.18;
+      filter: blur(2px);
+      z-index: 1;
+      animation: cloudDrift linear infinite;
+    }
+    .cloud svg { display: block; }
+    .cloud-1 { top: 12%; left: -160px; animation-duration: 38s; }
+    .cloud-2 { top: 32%; right: -180px; animation-duration: 52s; animation-direction: reverse; }
+    @keyframes cloudDrift {
+      from { transform: translateX(0); }
+      to   { transform: translateX(calc(100vw + 320px)); }
+    }
+
+    .fx-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    #stars  { z-index: 1; }
+    #petals { z-index: 2; }
+
+    @media (max-width: 520px) {
+      .fi-cat-grn, .fi-cat-pur, .fi-fries,
+      .fi-cat-yel, .fi-cat-cyan, .fi-cat-brn,
+      .fi-cat-or3, .fi-cat-or5 { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- imparatul pleasca pe buci e fleasca -->
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+  <div class="blob blob-3" aria-hidden="true"></div>
 
-  <div class="floaty fi-lasagna">
+  <div class="floaty fi-lasagna" aria-hidden="true">
     <svg width="70" height="52" viewBox="0 0 70 52" fill="none" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="35" cy="46" rx="32" ry="6" fill="#c8a060"/>
       <rect x="6" y="30" width="58" height="10" rx="3" fill="#e8c87a"/>
-      <rect x="6" y="30" width="58" height="4" rx="2" fill="#d04020"/>
+      <rect x="6" y="30" width="58" height="4"  rx="2" fill="#d04020"/>
       <rect x="6" y="20" width="58" height="10" rx="3" fill="#f0d890"/>
-      <!-- da ba datoria inapoi -->
-      <rect x="6" y="20" width="58" height="4" rx="2" fill="#c83818"/>
-      <!-- tic tac ma-ta e barbat -->
+      <rect x="6" y="20" width="58" height="4"  rx="2" fill="#c83818"/>
       <rect x="6" y="10" width="58" height="12" rx="3" fill="#f8e8a0"/>
-      <!-- cat cantareste un borcan pe jumatate full de.....sperma -->
       <ellipse cx="18" cy="10" rx="5" ry="3" fill="#fff8d0"/>
-      <ellipse cx="35" cy="9" rx="6" ry="3.5" fill="#fff8d0"/>
+      <ellipse cx="35" cy="9"  rx="6" ry="3.5" fill="#fff8d0"/>
       <ellipse cx="52" cy="10" rx="5" ry="3" fill="#fff8d0"/>
-      <!-- sa va suga toti tantarii si sa va intepe bochetarii -->
-      <ellipse cx="18" cy="9" rx="3" ry="2" fill="#c87820"/>
-      <ellipse cx="35" cy="8" rx="4" ry="2.2" fill="#c87820"/>
-      <ellipse cx="52" cy="9" rx="3" ry="2" fill="#c87820"/>
+      <ellipse cx="18" cy="9"  rx="3" ry="2"   fill="#c87820"/>
+      <ellipse cx="35" cy="8"  rx="4" ry="2.2" fill="#c87820"/>
+      <ellipse cx="52" cy="9"  rx="3" ry="2"   fill="#c87820"/>
     </svg>
   </div>
 
-  <div class="floaty fi-pizza">
+  <div class="floaty fi-pizza" aria-hidden="true">
     <svg width="58" height="64" viewBox="0 0 58 64" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M2 58 L29 4 L56 58 Z" fill="#e8c878"/>
       <path d="M2 58 Q29 66 56 58 L29 4 Z" fill="#d4a040"/>
@@ -128,38 +189,34 @@
       <circle cx="29" cy="36" r="5" fill="#b02010"/>
       <circle cx="20" cy="46" r="4" fill="#b02010"/>
       <circle cx="38" cy="46" r="4" fill="#b02010"/>
-      <!-- pentru fiecare persoana care se sterge la cur sunt 3 care lasa sa se faca crusta la buci -->
       <path d="M2 58 Q5 44 29 4 Q53 44 56 58" stroke="#c89030" stroke-width="2" fill="none" opacity="0.3"/>
     </svg>
   </div>
 
-  <div class="floaty fi-fries">
+  <div class="floaty fi-fries" aria-hidden="true">
     <svg width="50" height="66" viewBox="0 0 50 66" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- am gaura in chiloti de la basinile mele radioactive -->
-      <rect x="8" y="34" width="34" height="28" rx="3" fill="#e82020"/>
-      <!-- pana moartea ne va desparatiiiiiiiiii -->
-      <rect x="8" y="34" width="11" height="28" rx="2" fill="#cc1010"/>
+      <rect x="8"  y="34" width="34" height="28" rx="3" fill="#e82020"/>
+      <rect x="8"  y="34" width="11" height="28" rx="2" fill="#cc1010"/>
       <rect x="31" y="34" width="11" height="28" rx="2" fill="#cc1010"/>
-      <!-- vreau vreau sa sa sarrrrrrrrr -->
       <path d="M11 34 Q25 26 39 34" stroke="white" stroke-width="2" fill="none" opacity="0.6"/>
-      <rect x="12" y="4"  width="6" height="34" rx="3" fill="#f8d840"/>
-      <rect x="20" y="2"  width="6" height="36" rx="3" fill="#f0c830"/>
-      <rect x="28" y="5"  width="6" height="33" rx="3" fill="#f8d840"/>
-      <rect x="36" y="3"  width="5" height="34" rx="2.5" fill="#f0c830"/>
-      <rect x="4"  y="6"  width="5" height="30" rx="2.5" fill="#f8d840"/>
+      <rect x="12" y="4" width="6" height="34" rx="3"   fill="#f8d840"/>
+      <rect x="20" y="2" width="6" height="36" rx="3"   fill="#f0c830"/>
+      <rect x="28" y="5" width="6" height="33" rx="3"   fill="#f8d840"/>
+      <rect x="36" y="3" width="5" height="34" rx="2.5" fill="#f0c830"/>
+      <rect x="4"  y="6" width="5" height="30" rx="2.5" fill="#f8d840"/>
     </svg>
   </div>
 
-  <div class="floaty fi-awp">
+  <div class="floaty fi-awp" aria-hidden="true">
     <svg width="110" height="36" viewBox="0 0 110 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="0" y="15" width="60" height="5" rx="2.5" fill="#444"/>
-      <rect x="0" y="13" width="8" height="9" rx="2" fill="#333"/>
-      <rect x="38" y="8" width="18" height="8" rx="3" fill="#222"/>
+      <rect x="0" y="13" width="8"  height="9" rx="2"   fill="#333"/>
+      <rect x="38" y="8" width="18" height="8" rx="3"   fill="#222"/>
       <circle cx="47" cy="12" r="3" fill="#4af" opacity="0.7"/>
       <line x1="44" y1="12" x2="50" y2="12" stroke="white" stroke-width="0.8" opacity="0.5"/>
       <line x1="47" y1="9"  x2="47" y2="15" stroke="white" stroke-width="0.8" opacity="0.5"/>
       <rect x="55" y="11" width="38" height="13" rx="4" fill="#5a4a2a"/>
-      <rect x="80" y="9" width="8" height="4" rx="2" fill="#3a2a0a"/>
+      <rect x="80" y="9"  width="8"  height="4"  rx="2" fill="#3a2a0a"/>
       <circle cx="88" cy="11" r="3" fill="#3a2a0a"/>
       <path d="M70 24 Q74 30 78 24" stroke="#3a2a0a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
       <path d="M93 13 L110 10 L110 25 L93 24 Z" fill="#4a3a18"/>
@@ -167,7 +224,7 @@
     </svg>
   </div>
 
-  <div class="floaty fi-cat-pink">
+  <div class="floaty fi-cat-pink" aria-hidden="true">
     <svg width="52" height="58" viewBox="0 0 52 58" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="12" y="28" width="28" height="24" rx="10" fill="#f080b0"/>
       <ellipse cx="26" cy="42" rx="10" ry="9" fill="#ffc0d8"/>
@@ -188,8 +245,7 @@
     </svg>
   </div>
 
-  <!-- schimbi de vicii nimic anormal caut mereu o iesire -->
-  <div class="floaty fi-cat-blue">
+  <div class="floaty fi-cat-blue" aria-hidden="true">
     <svg width="52" height="58" viewBox="0 0 52 58" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="12" y="28" width="28" height="24" rx="10" fill="#60a0e8"/>
       <ellipse cx="26" cy="42" rx="10" ry="9" fill="#b8d8f8"/>
@@ -209,8 +265,7 @@
     </svg>
   </div>
 
-  <!-- fara vicii am fii toti niste roboti -->
-  <div class="floaty fi-cat-grn">
+  <div class="floaty fi-cat-grn" aria-hidden="true">
     <svg width="48" height="54" viewBox="0 0 48 54" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="10" y="26" width="26" height="22" rx="9" fill="#50c878"/>
       <ellipse cx="24" cy="38" rx="9" ry="8" fill="#b0f0c0"/>
@@ -230,8 +285,7 @@
     </svg>
   </div>
 
-  <!-- foame de bani e foame de bani -->
-  <div class="floaty fi-cat-pur">
+  <div class="floaty fi-cat-pur" aria-hidden="true">
     <svg width="48" height="54" viewBox="0 0 48 54" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="10" y="26" width="26" height="22" rx="9" fill="#9060d0"/>
       <ellipse cx="24" cy="38" rx="9" ry="8" fill="#d8b8f8"/>
@@ -251,92 +305,394 @@
     </svg>
   </div>
 
-  <!-- sa va felicite canibalii -->
-  <div class="ground"></div>
+  <div class="ground" aria-hidden="true"></div>
 
-  <!-- sa ai perna calda pe ambele parti vara -->
-  <div class="leaf leaf-1"></div>
-  <div class="leaf leaf-2"></div>
-  <div class="leaf leaf-3"></div>
+  <div class="leaf leaf-1" aria-hidden="true"></div>
+  <div class="leaf leaf-2" aria-hidden="true"></div>
+  <div class="leaf leaf-3" aria-hidden="true"></div>
 
+  <div class="cloud cloud-1" aria-hidden="true">
+    <svg width="160" height="60" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="80"  cy="40" rx="76" ry="22" fill="white"/>
+      <ellipse cx="55"  cy="30" rx="34" ry="26" fill="white"/>
+      <ellipse cx="105" cy="28" rx="28" ry="22" fill="white"/>
+      <ellipse cx="80"  cy="22" rx="22" ry="18" fill="white"/>
+    </svg>
+  </div>
+  <div class="cloud cloud-2" aria-hidden="true">
+    <svg width="120" height="48" viewBox="0 0 120 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="60" cy="32" rx="56" ry="18" fill="white"/>
+      <ellipse cx="40" cy="24" rx="26" ry="20" fill="white"/>
+      <ellipse cx="82" cy="22" rx="22" ry="18" fill="white"/>
+    </svg>
+  </div>
+
+  <div class="floaty fi-cat-orange" aria-hidden="true">
+    <svg width="52" height="52" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M72 95 Q100 90 102 72 Q104 58 92 56 Q88 55 88 59 Q96 60 94 70 Q92 82 68 88" fill="#e07818" stroke="#c86010" stroke-width="1"/>
+      <rect x="28" y="60" width="64" height="52" rx="22" fill="#f09030"/>
+      <path d="M38 68 Q36 78 38 88" stroke="#c86010" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+      <path d="M82 68 Q84 78 82 88" stroke="#c86010" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+      <ellipse cx="60" cy="90" rx="20" ry="18" fill="#fde4b0"/>
+      <rect x="32" y="98" width="18" height="14" rx="9" fill="#e07818"/>
+      <rect x="70" y="98" width="18" height="14" rx="9" fill="#e07818"/>
+      <circle cx="36" cy="113" r="3" fill="#f09030"/>
+      <circle cx="41" cy="114" r="3" fill="#f09030"/>
+      <circle cx="46" cy="113" r="3" fill="#f09030"/>
+      <circle cx="74" cy="113" r="3" fill="#f09030"/>
+      <circle cx="79" cy="114" r="3" fill="#f09030"/>
+      <circle cx="84" cy="113" r="3" fill="#f09030"/>
+      <rect x="44" y="52" width="32" height="18" rx="8" fill="#f09030"/>
+      <ellipse cx="60" cy="42" rx="30" ry="28" fill="#f09030"/>
+      <path d="M50 16 Q49 11 50 7" stroke="#c86010" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/>
+      <path d="M60 14 Q60 9 60 5" stroke="#c86010" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/>
+      <path d="M70 16 Q71 11 70 7" stroke="#c86010" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/>
+      <polygon points="36,22 30,6 48,20" fill="#f09030"/>
+      <polygon points="38,21 33,9 46,20" fill="#f5c0a0"/>
+      <polygon points="84,22 90,6 72,20" fill="#f09030"/>
+      <polygon points="82,21 87,9 74,20" fill="#f5c0a0"/>
+      <ellipse cx="38" cy="50" rx="10" ry="8" fill="#fde4b0"/>
+      <ellipse cx="82" cy="50" rx="10" ry="8" fill="#fde4b0"/>
+      <ellipse cx="48" cy="40" rx="9" ry="8" fill="white"/>
+      <ellipse cx="72" cy="40" rx="9" ry="8" fill="white"/>
+      <ellipse cx="48" cy="41" rx="5.5" ry="5" fill="#2a1800"/>
+      <ellipse cx="72" cy="41" rx="5.5" ry="5" fill="#2a1800"/>
+      <circle cx="50" cy="39" r="1.8" fill="white"/>
+      <circle cx="74" cy="39" r="1.8" fill="white"/>
+      <path d="M39 38 Q48 33 57 38" fill="#f09030" stroke="none"/>
+      <path d="M63 38 Q72 33 81 38" fill="#f09030" stroke="none"/>
+      <polygon points="60,50 57,54 63,54" fill="#e05878"/>
+      <path d="M54 56 Q57 59 60 56 Q63 59 66 56" stroke="#c04050" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      <line x1="50" y1="52" x2="22" y2="48" stroke="#d4a870" stroke-width="1.3" stroke-linecap="round" opacity="0.75"/>
+      <line x1="50" y1="55" x2="22" y2="55" stroke="#d4a870" stroke-width="1.3" stroke-linecap="round" opacity="0.75"/>
+      <line x1="50" y1="58" x2="23" y2="62" stroke="#d4a870" stroke-width="1.3" stroke-linecap="round" opacity="0.75"/>
+      <line x1="70" y1="52" x2="98" y2="48" stroke="#d4a870" stroke-width="1.3" stroke-linecap="round" opacity="0.75"/>
+      <line x1="70" y1="55" x2="98" y2="55" stroke="#d4a870" stroke-width="1.3" stroke-linecap="round" opacity="0.75"/>
+      <line x1="70" y1="58" x2="97" y2="62" stroke="#d4a870" stroke-width="1.3" stroke-linecap="round" opacity="0.75"/>
+    </svg>
+  </div>
+
+  <div class="floaty fi-cat-yel" aria-hidden="true">
+    <svg width="50" height="56" viewBox="0 0 52 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12" y="28" width="28" height="24" rx="10" fill="#f0c840"/>
+      <ellipse cx="26" cy="42" rx="10" ry="9" fill="#ffe890"/>
+      <rect x="16" y="22" width="20" height="12" rx="5" fill="#f0c840"/>
+      <ellipse cx="26" cy="20" rx="14" ry="13" fill="#f0c840"/>
+      <polygon points="15,12 11,2 21,11" fill="#f0c840"/><polygon points="37,12 41,2 31,11" fill="#f0c840"/>
+      <ellipse cx="20" cy="19" rx="4" ry="3.5" fill="white"/><ellipse cx="32" cy="19" rx="4" ry="3.5" fill="white"/>
+      <ellipse cx="20" cy="20" rx="2.5" ry="2.5" fill="#2a1800"/><ellipse cx="32" cy="20" rx="2.5" ry="2.5" fill="#2a1800"/>
+      <circle cx="21" cy="19" r="1" fill="white"/><circle cx="33" cy="19" r="1" fill="white"/>
+      <ellipse cx="26" cy="24" rx="5" ry="3.5" fill="#ffe890"/>
+      <ellipse cx="26" cy="25" rx="1.5" ry="1" fill="#c89020"/>
+      <path d="M22,27 Q26,30 30,27" stroke="#a07020" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <line x1="21" y1="24" x2="8"  y2="22" stroke="#d8b860" stroke-width="1" opacity="0.7"/>
+      <line x1="21" y1="26" x2="8"  y2="26" stroke="#d8b860" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="24" x2="44" y2="22" stroke="#d8b860" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="26" x2="44" y2="26" stroke="#d8b860" stroke-width="1" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <div class="floaty fi-cat-red" aria-hidden="true">
+    <svg width="52" height="58" viewBox="0 0 52 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12" y="28" width="28" height="24" rx="10" fill="#d84040"/>
+      <ellipse cx="26" cy="42" rx="10" ry="9" fill="#ffb8b8"/>
+      <rect x="16" y="22" width="20" height="12" rx="5" fill="#d84040"/>
+      <ellipse cx="26" cy="20" rx="14" ry="13" fill="#d84040"/>
+      <polygon points="15,12 11,2 21,11" fill="#d84040"/><polygon points="37,12 41,2 31,11" fill="#d84040"/>
+      <ellipse cx="20" cy="19" rx="4" ry="3.5" fill="white"/><ellipse cx="32" cy="19" rx="4" ry="3.5" fill="white"/>
+      <ellipse cx="20" cy="20" rx="2.5" ry="2.5" fill="#2a0808"/><ellipse cx="32" cy="20" rx="2.5" ry="2.5" fill="#2a0808"/>
+      <circle cx="21" cy="19" r="1" fill="white"/><circle cx="33" cy="19" r="1" fill="white"/>
+      <ellipse cx="26" cy="24" rx="5" ry="3.5" fill="#ffb8b8"/>
+      <ellipse cx="26" cy="25" rx="1.5" ry="1" fill="#a02020"/>
+      <path d="M22,27 Q26,30 30,27" stroke="#802020" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <line x1="21" y1="24" x2="8"  y2="22" stroke="#e89090" stroke-width="1" opacity="0.7"/>
+      <line x1="21" y1="26" x2="8"  y2="26" stroke="#e89090" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="24" x2="44" y2="22" stroke="#e89090" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="26" x2="44" y2="26" stroke="#e89090" stroke-width="1" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <div class="floaty fi-cat-cyan" aria-hidden="true">
+    <svg width="48" height="54" viewBox="0 0 52 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12" y="28" width="28" height="24" rx="10" fill="#40c8c0"/>
+      <ellipse cx="26" cy="42" rx="10" ry="9" fill="#b0f0e8"/>
+      <rect x="16" y="22" width="20" height="12" rx="5" fill="#40c8c0"/>
+      <ellipse cx="26" cy="20" rx="14" ry="13" fill="#40c8c0"/>
+      <polygon points="15,12 11,2 21,11" fill="#40c8c0"/><polygon points="37,12 41,2 31,11" fill="#40c8c0"/>
+      <ellipse cx="20" cy="19" rx="4" ry="3.5" fill="white"/><ellipse cx="32" cy="19" rx="4" ry="3.5" fill="white"/>
+      <ellipse cx="20" cy="20" rx="2.5" ry="2.5" fill="#001a18"/><ellipse cx="32" cy="20" rx="2.5" ry="2.5" fill="#001a18"/>
+      <circle cx="21" cy="19" r="1" fill="white"/><circle cx="33" cy="19" r="1" fill="white"/>
+      <ellipse cx="26" cy="24" rx="5" ry="3.5" fill="#b0f0e8"/>
+      <ellipse cx="26" cy="25" rx="1.5" ry="1" fill="#208880"/>
+      <path d="M22,27 Q26,30 30,27" stroke="#186860" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <line x1="21" y1="24" x2="8"  y2="22" stroke="#80d8d0" stroke-width="1" opacity="0.7"/>
+      <line x1="21" y1="26" x2="8"  y2="26" stroke="#80d8d0" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="24" x2="44" y2="22" stroke="#80d8d0" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="26" x2="44" y2="26" stroke="#80d8d0" stroke-width="1" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <div class="floaty fi-cat-blk" aria-hidden="true">
+    <svg width="50" height="56" viewBox="0 0 52 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12" y="28" width="28" height="24" rx="10" fill="#2a2a32"/>
+      <ellipse cx="26" cy="42" rx="10" ry="9" fill="#5a5a64"/>
+      <rect x="16" y="22" width="20" height="12" rx="5" fill="#2a2a32"/>
+      <ellipse cx="26" cy="20" rx="14" ry="13" fill="#2a2a32"/>
+      <polygon points="15,12 11,2 21,11" fill="#2a2a32"/><polygon points="37,12 41,2 31,11" fill="#2a2a32"/>
+      <ellipse cx="20" cy="19" rx="4" ry="3.5" fill="#f0e040"/><ellipse cx="32" cy="19" rx="4" ry="3.5" fill="#f0e040"/>
+      <ellipse cx="20" cy="20" rx="1.2" ry="3" fill="#101000"/><ellipse cx="32" cy="20" rx="1.2" ry="3" fill="#101000"/>
+      <circle cx="21" cy="18" r="0.8" fill="white"/><circle cx="33" cy="18" r="0.8" fill="white"/>
+      <ellipse cx="26" cy="24" rx="5" ry="3.5" fill="#5a5a64"/>
+      <ellipse cx="26" cy="25" rx="1.5" ry="1" fill="#101018"/>
+      <path d="M22,27 Q26,30 30,27" stroke="#181820" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <line x1="21" y1="24" x2="8"  y2="22" stroke="#888892" stroke-width="1" opacity="0.7"/>
+      <line x1="21" y1="26" x2="8"  y2="26" stroke="#888892" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="24" x2="44" y2="22" stroke="#888892" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="26" x2="44" y2="26" stroke="#888892" stroke-width="1" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <div class="floaty fi-cat-brn" aria-hidden="true">
+    <svg width="52" height="58" viewBox="0 0 52 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12" y="28" width="28" height="24" rx="10" fill="#8a6038"/>
+      <ellipse cx="26" cy="42" rx="10" ry="9" fill="#d8b890"/>
+      <rect x="16" y="22" width="20" height="12" rx="5" fill="#8a6038"/>
+      <ellipse cx="26" cy="20" rx="14" ry="13" fill="#8a6038"/>
+      <polygon points="15,12 11,2 21,11" fill="#8a6038"/><polygon points="37,12 41,2 31,11" fill="#8a6038"/>
+      <ellipse cx="20" cy="19" rx="4" ry="3.5" fill="white"/><ellipse cx="32" cy="19" rx="4" ry="3.5" fill="white"/>
+      <ellipse cx="20" cy="20" rx="2.5" ry="2.5" fill="#1a0e00"/><ellipse cx="32" cy="20" rx="2.5" ry="2.5" fill="#1a0e00"/>
+      <circle cx="21" cy="19" r="1" fill="white"/><circle cx="33" cy="19" r="1" fill="white"/>
+      <ellipse cx="26" cy="24" rx="5" ry="3.5" fill="#d8b890"/>
+      <ellipse cx="26" cy="25" rx="1.5" ry="1" fill="#5a3a18"/>
+      <path d="M22,27 Q26,30 30,27" stroke="#4a2a08" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <line x1="21" y1="24" x2="8"  y2="22" stroke="#b89868" stroke-width="1" opacity="0.7"/>
+      <line x1="21" y1="26" x2="8"  y2="26" stroke="#b89868" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="24" x2="44" y2="22" stroke="#b89868" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="26" x2="44" y2="26" stroke="#b89868" stroke-width="1" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <div class="floaty fi-cat-or2" aria-hidden="true">
+    <svg width="50" height="56" viewBox="0 0 52 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12" y="28" width="28" height="24" rx="10" fill="#f09030"/>
+      <ellipse cx="26" cy="42" rx="10" ry="9" fill="#fde4b0"/>
+      <rect x="16" y="22" width="20" height="12" rx="5" fill="#f09030"/>
+      <ellipse cx="26" cy="20" rx="14" ry="13" fill="#f09030"/>
+      <polygon points="15,12 11,2 21,11" fill="#f09030"/><polygon points="37,12 41,2 31,11" fill="#f09030"/>
+      <ellipse cx="20" cy="19" rx="4" ry="3.5" fill="white"/><ellipse cx="32" cy="19" rx="4" ry="3.5" fill="white"/>
+      <ellipse cx="20" cy="20" rx="2.5" ry="2.5" fill="#2a1800"/><ellipse cx="32" cy="20" rx="2.5" ry="2.5" fill="#2a1800"/>
+      <circle cx="21" cy="19" r="1" fill="white"/><circle cx="33" cy="19" r="1" fill="white"/>
+      <ellipse cx="26" cy="24" rx="5" ry="3.5" fill="#fde4b0"/>
+      <ellipse cx="26" cy="25" rx="1.5" ry="1" fill="#c86010"/>
+      <path d="M22,27 Q26,30 30,27" stroke="#a04000" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <line x1="21" y1="24" x2="8"  y2="22" stroke="#d4a870" stroke-width="1" opacity="0.7"/>
+      <line x1="21" y1="26" x2="8"  y2="26" stroke="#d4a870" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="24" x2="44" y2="22" stroke="#d4a870" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="26" x2="44" y2="26" stroke="#d4a870" stroke-width="1" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <div class="floaty fi-cat-or3" aria-hidden="true">
+    <svg width="48" height="54" viewBox="0 0 52 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12" y="28" width="28" height="24" rx="10" fill="#f8b078"/>
+      <ellipse cx="26" cy="42" rx="10" ry="9" fill="#fff0d8"/>
+      <rect x="16" y="22" width="20" height="12" rx="5" fill="#f8b078"/>
+      <ellipse cx="26" cy="20" rx="14" ry="13" fill="#f8b078"/>
+      <polygon points="15,12 11,2 21,11" fill="#f8b078"/><polygon points="37,12 41,2 31,11" fill="#f8b078"/>
+      <ellipse cx="20" cy="19" rx="4" ry="3.5" fill="white"/><ellipse cx="32" cy="19" rx="4" ry="3.5" fill="white"/>
+      <ellipse cx="20" cy="20" rx="2.5" ry="2.5" fill="#2a1800"/><ellipse cx="32" cy="20" rx="2.5" ry="2.5" fill="#2a1800"/>
+      <circle cx="21" cy="19" r="1" fill="white"/><circle cx="33" cy="19" r="1" fill="white"/>
+      <ellipse cx="26" cy="24" rx="5" ry="3.5" fill="#fff0d8"/>
+      <ellipse cx="26" cy="25" rx="1.5" ry="1" fill="#d8784a"/>
+      <path d="M22,27 Q26,30 30,27" stroke="#b85838" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <line x1="21" y1="24" x2="8"  y2="22" stroke="#e8b890" stroke-width="1" opacity="0.7"/>
+      <line x1="21" y1="26" x2="8"  y2="26" stroke="#e8b890" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="24" x2="44" y2="22" stroke="#e8b890" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="26" x2="44" y2="26" stroke="#e8b890" stroke-width="1" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <div class="floaty fi-cat-or4" aria-hidden="true">
+    <svg width="52" height="58" viewBox="0 0 52 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12" y="28" width="28" height="24" rx="10" fill="#d86020"/>
+      <ellipse cx="26" cy="42" rx="10" ry="9" fill="#f8c898"/>
+      <path d="M14,32 Q18,30 22,32" stroke="#a03808" stroke-width="1.2" fill="none" opacity="0.6"/>
+      <path d="M30,32 Q34,30 38,32" stroke="#a03808" stroke-width="1.2" fill="none" opacity="0.6"/>
+      <rect x="16" y="22" width="20" height="12" rx="5" fill="#d86020"/>
+      <ellipse cx="26" cy="20" rx="14" ry="13" fill="#d86020"/>
+      <path d="M16,12 Q18,10 20,12" stroke="#a03808" stroke-width="1.2" fill="none" opacity="0.6"/>
+      <path d="M32,12 Q34,10 36,12" stroke="#a03808" stroke-width="1.2" fill="none" opacity="0.6"/>
+      <polygon points="15,12 11,2 21,11" fill="#d86020"/><polygon points="37,12 41,2 31,11" fill="#d86020"/>
+      <ellipse cx="20" cy="19" rx="4" ry="3.5" fill="white"/><ellipse cx="32" cy="19" rx="4" ry="3.5" fill="white"/>
+      <ellipse cx="20" cy="20" rx="2.5" ry="2.5" fill="#2a1000"/><ellipse cx="32" cy="20" rx="2.5" ry="2.5" fill="#2a1000"/>
+      <circle cx="21" cy="19" r="1" fill="white"/><circle cx="33" cy="19" r="1" fill="white"/>
+      <ellipse cx="26" cy="24" rx="5" ry="3.5" fill="#f8c898"/>
+      <ellipse cx="26" cy="25" rx="1.5" ry="1" fill="#a03808"/>
+      <path d="M22,27 Q26,30 30,27" stroke="#802a00" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <line x1="21" y1="24" x2="8"  y2="22" stroke="#c8884a" stroke-width="1" opacity="0.7"/>
+      <line x1="21" y1="26" x2="8"  y2="26" stroke="#c8884a" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="24" x2="44" y2="22" stroke="#c8884a" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="26" x2="44" y2="26" stroke="#c8884a" stroke-width="1" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <div class="floaty fi-cat-or5" aria-hidden="true">
+    <svg width="40" height="44" viewBox="0 0 52 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12" y="28" width="28" height="24" rx="10" fill="#ffa040"/>
+      <ellipse cx="26" cy="42" rx="10" ry="9" fill="#ffeac0"/>
+      <rect x="16" y="22" width="20" height="12" rx="5" fill="#ffa040"/>
+      <ellipse cx="26" cy="20" rx="14" ry="13" fill="#ffa040"/>
+      <polygon points="15,12 11,2 21,11" fill="#ffa040"/><polygon points="37,12 41,2 31,11" fill="#ffa040"/>
+      <ellipse cx="20" cy="19" rx="4" ry="3.5" fill="white"/><ellipse cx="32" cy="19" rx="4" ry="3.5" fill="white"/>
+      <ellipse cx="20" cy="20" rx="2.8" ry="2.8" fill="#2a1800"/><ellipse cx="32" cy="20" rx="2.8" ry="2.8" fill="#2a1800"/>
+      <circle cx="21" cy="19" r="1.2" fill="white"/><circle cx="33" cy="19" r="1.2" fill="white"/>
+      <ellipse cx="26" cy="24" rx="5" ry="3.5" fill="#ffeac0"/>
+      <ellipse cx="26" cy="25" rx="1.5" ry="1" fill="#d06820"/>
+      <path d="M22,27 Q26,30 30,27" stroke="#a04810" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <line x1="21" y1="24" x2="8"  y2="22" stroke="#e8c090" stroke-width="1" opacity="0.7"/>
+      <line x1="21" y1="26" x2="8"  y2="26" stroke="#e8c090" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="24" x2="44" y2="22" stroke="#e8c090" stroke-width="1" opacity="0.7"/>
+      <line x1="31" y1="26" x2="44" y2="26" stroke="#e8c090" stroke-width="1" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <canvas id="stars"  class="fx-canvas" aria-hidden="true"></canvas>
+  <canvas id="petals" class="fx-canvas" aria-hidden="true"></canvas>
+
+  <script>
+  (function () {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    const sc = document.getElementById('stars');
+    const sx = sc.getContext('2d');
+    const STAR_COUNT = 220;
+    let stars = [];
+
+    function resizeStars() {
+      sc.width  = innerWidth  * dpr;
+      sc.height = innerHeight * dpr;
+      sc.style.width  = innerWidth  + 'px';
+      sc.style.height = innerHeight + 'px';
+      sx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      stars = [];
+      const rng = (n, s) => Math.abs(Math.sin(n * 127.1 + s * 311.7) * 43758.5453) % 1;
+      for (let i = 0; i < STAR_COUNT; i++) {
+        stars.push({
+          x: rng(i, 0) * innerWidth,
+          y: rng(i, 1) * innerHeight,
+          r: rng(i, 2) * 1.4 + 0.2,
+          baseA: rng(i, 3) * 0.55 + 0.3,
+          phase: rng(i, 4) * Math.PI * 2,
+          speed: rng(i, 5) * 0.025 + 0.008,
+        });
+      }
+    }
+    function drawStars(t) {
+      sx.clearRect(0, 0, innerWidth, innerHeight);
+      for (const s of stars) {
+        const a = s.baseA + Math.sin(t * s.speed + s.phase) * 0.25;
+        sx.beginPath();
+        sx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        sx.fillStyle = `rgba(255,255,240,${Math.max(0.05, a)})`;
+        sx.fill();
+      }
+    }
+
+    const pc = document.getElementById('petals');
+    const px = pc.getContext('2d');
+    const PETAL_COUNT = 42;
+    let petals = [];
+
+    function newPetal(fromTop) {
+      return {
+        x: Math.random() * innerWidth,
+        y: fromTop ? -14 : Math.random() * innerHeight,
+        sz: Math.random() * 7 + 5,
+        vy: Math.random() * 0.9 + 0.35,
+        vx: (Math.random() - 0.5) * 0.5,
+        ang: Math.random() * Math.PI * 2,
+        spin: (Math.random() - 0.5) * 0.028,
+        sw: Math.random() * 2.5 + 0.8,
+        swspd: Math.random() * 0.018 + 0.006,
+        swoff: Math.random() * Math.PI * 2,
+        op: Math.random() * 0.45 + 0.4,
+        hue: Math.random() * 18,
+      };
+    }
+    function resizePetals() {
+      pc.width  = innerWidth  * dpr;
+      pc.height = innerHeight * dpr;
+      pc.style.width  = innerWidth  + 'px';
+      pc.style.height = innerHeight + 'px';
+      px.setTransform(dpr, 0, 0, dpr, 0, 0);
+      for (const p of petals) {
+        if (p.x > innerWidth)  p.x = Math.random() * innerWidth;
+        if (p.y > innerHeight) p.y = Math.random() * innerHeight;
+      }
+    }
+    function initPetals() {
+      petals = Array.from({ length: PETAL_COUNT }, () => newPetal(false));
+    }
+    function drawPetal(p) {
+      px.save();
+      px.translate(p.x, p.y);
+      px.rotate(p.ang);
+      px.globalAlpha = p.op;
+      const s = p.sz;
+      px.beginPath();
+      px.ellipse(0, -s * 0.28, s * 0.38, s * 0.7, 0, 0, Math.PI * 2);
+      px.fillStyle = `hsl(${340 + p.hue},88%,80%)`;
+      px.fill();
+      px.beginPath();
+      px.ellipse(0, -s * 0.28, s * 0.2, s * 0.52, 0, 0, Math.PI * 2);
+      px.fillStyle = `hsl(${340 + p.hue},80%,93%)`;
+      px.globalAlpha = p.op * 0.55;
+      px.fill();
+      px.restore();
+    }
+
+    let frame = 0;
+    function tick() {
+      frame++;
+      drawStars(frame);
+
+      px.clearRect(0, 0, innerWidth, innerHeight);
+      for (let i = 0; i < petals.length; i++) {
+        const p = petals[i];
+        p.y += p.vy;
+        p.x += p.vx + Math.sin(frame * p.swspd + p.swoff) * p.sw * 0.07;
+        p.ang += p.spin;
+        if (p.y > innerHeight + 18 || p.x < -20 || p.x > innerWidth + 20) {
+          petals[i] = newPetal(true);
+        }
+        drawPetal(petals[i]);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    resizeStars();
+    resizePetals();
+    initPetals();
+
+    if (reduceMotion) {
+      drawStars(0);
+    } else {
+      requestAnimationFrame(tick);
+    }
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        resizeStars();
+        resizePetals();
+        if (reduceMotion) drawStars(0);
+      }, 120);
+    });
+  })();
+  </script>
 
 </body>
 </html>
-
-<style>
-</style>
-
-<!-- 1 2 3 asta e bazooka -->
-<canvas id="stars" style="position:absolute;inset:0;pointer-events:none;z-index:1;width:100%;height:100%;"></canvas>
-<!-- pestele sageata -->
-<canvas id="petals" style="position:absolute;inset:0;pointer-events:none;z-index:2;width:100%;height:100%;"></canvas>
-
-<script>
-(function(){
-  /* ── pisica propan ── */
-  const sc = document.getElementById('stars');
-  const sx = sc.getContext('2d');
-  function resizeStars(){ sc.width=innerWidth; sc.height=innerHeight; drawStars(); }
-  function drawStars(){
-    sx.clearRect(0,0,sc.width,sc.height);
-    for(let i=0;i<220;i++){
-      const rng=(n,s)=>Math.abs(Math.sin(n*127.1+s*311.7)*43758.5453)%1;
-      const x=rng(i,0)*sc.width, y=rng(i,1)*sc.height;
-      const r=rng(i,2)*1.4+0.2, a=rng(i,3)*0.65+0.3;
-      sx.beginPath(); sx.arc(x,y,r,0,Math.PI*2);
-      sx.fillStyle=`rgba(255,255,240,${a})`; sx.fill();
-    }
-  }
-  window.addEventListener('resize',resizeStars); resizeStars();
-
-  const pc=document.getElementById('petals');
-  const px=pc.getContext('2d');
-  const N=42;
-  function resizePetals(){ pc.width=innerWidth; pc.height=innerHeight; }
-  window.addEventListener('resize',resizePetals); resizePetals();
-
-  function newPetal(fromTop){
-    return {
-      x: Math.random()*innerWidth,
-      y: fromTop ? -14 : Math.random()*innerHeight,
-      sz: Math.random()*7+5,
-      vy: Math.random()*0.9+0.35,
-      vx: (Math.random()-0.5)*0.5,
-      ang: Math.random()*Math.PI*2,
-      spin: (Math.random()-0.5)*0.028,
-      sw: Math.random()*2.5+0.8,
-      swspd: Math.random()*0.018+0.006,
-      swoff: Math.random()*Math.PI*2,
-      op: Math.random()*0.45+0.4,
-      hue: Math.random()*18,
-    };
-  }
-  const petals=Array.from({length:N},()=>newPetal(false));
-  let f=0;
-
-  function drawPetal(p){
-    px.save();
-    px.translate(p.x,p.y); px.rotate(p.ang);
-    px.globalAlpha=p.op;
-    const s=p.sz;
-    px.beginPath();
-    px.ellipse(0,-s*0.28,s*0.38,s*0.7,0,0,Math.PI*2);
-    px.fillStyle=`hsl(${340+p.hue},88%,80%)`; px.fill();
-    px.beginPath();
-    px.ellipse(0,-s*0.28,s*0.2,s*0.52,0,0,Math.PI*2);
-    px.fillStyle=`hsl(${340+p.hue},80%,93%)`; px.globalAlpha=p.op*0.55; px.fill();
-    px.restore();
-  }
-
-  function tick(){
-    px.clearRect(0,0,pc.width,pc.height); f++;
-    petals.forEach((p,i)=>{
-      p.y+=p.vy; p.x+=p.vx+Math.sin(f*p.swspd+p.swoff)*p.sw*0.07; p.ang+=p.spin;
-      if(p.y>innerHeight+18) petals[i]=newPetal(true);
-      drawPetal(p);
-    });
-    requestAnimationFrame(tick);
-  }
-  tick();
-})();
-</script>
